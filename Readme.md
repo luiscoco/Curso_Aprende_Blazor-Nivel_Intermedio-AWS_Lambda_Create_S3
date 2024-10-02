@@ -36,13 +36,23 @@ Select the **Empty Function** and press the **Finish** button
 
 ![image](https://github.com/user-attachments/assets/90a2737f-303f-4793-8a97-1003e204a2f7)
 
-## 2. Load the Nuget packages
+## 2. Before continue we have to verify the application is referencing .NET 6 (because nowadays is the stable version for AWS Lambda)
+
+First we double-click on the project name **AWSLambda1.csproj** and set **.NET 6**
+
+![image](https://github.com/user-attachments/assets/898340d5-5250-4a9e-810c-e9c26d73a5f2)
+
+We also has to edit the **aws-lambda-tools-defaults.json** file and set **.NET 6**
+
+![image](https://github.com/user-attachments/assets/9f903eac-70a3-47b1-8c5e-a5ac40fd922d)
+
+## 3. Load the Nuget packages
 
 We load the **AWSSDK.S3** package
 
 ![image](https://github.com/user-attachments/assets/ff99aa90-ee75-4c99-a87f-1280d9318f33)
 
-## 3. Input the source code in C#
+## 4. Input the source code in C#
 
 This C# code is designed to be used as an AWS Lambda function. The function handles requests from API Gateway and interacts with Amazon S3 to create a new S3 bucket
 
@@ -234,7 +244,7 @@ This represents the request model coming from API Gateway. The important propert
 
 **Summary**: The code defines a Lambda function that Receives a JSON input via API Gateway. Extracts the name of an S3 bucket from the request. Checks if the bucket already exists and, if not, creates the bucket. Logs the operation's details and returns success or failure messages based on the outcome.
 
-## 4. Open the Function.cs file in the containing folder and build the application
+## 5. Open the Function.cs file in the containing folder and build the application
 
 ![image](https://github.com/user-attachments/assets/65e46201-771a-4385-8288-9b03c219b847)
 
@@ -258,7 +268,7 @@ dotnet build
 
 ![image](https://github.com/user-attachments/assets/aa4dcf1e-2e17-4140-8e30-284f7312ce74)
 
-## 5. Install the Amazon.Lambda.Tools Global Tool
+## 6. Install the Amazon.Lambda.Tools Global Tool
 
 You need to install the Amazon.Lambda.Tools package, which provides the command-line interface (CLI) extensions for deploying Lambda functions.
 
@@ -280,7 +290,7 @@ This should show you the list of available commands for working with AWS Lambda
 
 ![image](https://github.com/user-attachments/assets/e8133dcc-cffd-4a1f-babc-52a10d330256)
 
-## 6. Deploy the AWS Lambda
+## 7. Deploy the AWS Lambda
 
 For deploying the AWS Lambda in AWS run the following command:
 
@@ -292,7 +302,7 @@ We input the lambda function name and the role
 
 ![image](https://github.com/user-attachments/assets/7f57550f-6264-480a-90b5-79b49b04270d)
 
-## 7. Login in AWS IAM and attach the policies to the Lambda Role
+## 8. Login in AWS IAM and attach the policies to the Lambda Role
 
 We click on the Lambda role
 
@@ -357,7 +367,7 @@ Then we define the policies for CloudWatch
 
 ![image](https://github.com/user-attachments/assets/a61d370b-13e3-46dc-9514-8c5ac67b00e6)
 
-## 8. Verify in AWS Console the Lambda was created
+## 9. Verify in AWS Console the Lambda was created
 
 ![image](https://github.com/user-attachments/assets/1d106eb4-e989-4f06-8e32-571567232304)
 
