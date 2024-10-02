@@ -210,4 +210,34 @@ dotnet build
 
 ![image](https://github.com/user-attachments/assets/aa4dcf1e-2e17-4140-8e30-284f7312ce74)
 
-## 5. 
+## 5. Install the Amazon.Lambda.Tools Global Tool
+
+You need to install the Amazon.Lambda.Tools package, which provides the command-line interface (CLI) extensions for deploying Lambda functions.
+
+Run this command to install the Lambda .NET global tool:
+
+```
+dotnet tool install -g Amazon.Lambda.Tools
+```
+
+![image](https://github.com/user-attachments/assets/123c8a65-c791-4821-8315-657b9abe7db2)
+
+After installing, you can check the installation by running:
+
+```
+dotnet lambda
+```
+
+This should show you the list of available commands for working with AWS Lambda
+
+![image](https://github.com/user-attachments/assets/e8133dcc-cffd-4a1f-babc-52a10d330256)
+
+## 5. Deploy the AWS Lambda
+
+For deploying the AWS Lambda in AWS run the following command:
+
+```
+dotnet lambda deploy-function
+```
+
+
