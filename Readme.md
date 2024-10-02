@@ -389,4 +389,7 @@ Run Postman
 
 ![image](https://github.com/user-attachments/assets/453977eb-a2b9-4310-8e73-13798e048b8e)
 
+We navigate to S3 in AWS Console and verify the new bucket was created
+
+![image](https://github.com/user-attachments/assets/7749ebf1-93c5-4f90-bbc2-112941bab897)
 
