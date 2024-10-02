@@ -253,4 +253,58 @@ We input the lambda function name and the role
 
 ## 6. Login in AWS IAM and attach the policies to the Lambda Role
 
+We click on the Lambda role
 
+![image](https://github.com/user-attachments/assets/fd3975ff-fb0d-418a-9d14-d85fa46ab805)
+
+We attach the policies for creating S3 bucket and for CloudWatch
+
+![image](https://github.com/user-attachments/assets/e35b2f20-43ea-406e-a629-ad5b1d834e2c)
+
+We first stablish the policy for creating S3 butkets
+
+![image](https://github.com/user-attachments/assets/7ba732ff-1c35-4bef-a6de-1edc7d7c77c4)
+
+```json
+{
+	"Version": "2012-10-17",
+	"Statement": [
+		{
+			"Effect": "Allow",
+			"Action": [
+				"s3:CreateBucket",
+				"s3:PutBucketAcl",
+				"s3:PutBucketPolicy"
+			],
+			"Resource": "*"
+		}
+	]
+}
+```
+
+![image](https://github.com/user-attachments/assets/f95b773f-e271-4eee-b334-e66fe0688ea5)
+
+See the new policy attached to the lambda role
+
+![image](https://github.com/user-attachments/assets/d11880af-cc17-4205-9ad1-116a15d76b24)
+
+Then we define the policies for CloudWatch
+
+
+
+```json
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": [
+        "logs:CreateLogGroup",
+        "logs:CreateLogStream",
+        "logs:PutLogEvents"
+      ],
+      "Resource": "*"
+    }
+  ]
+}
+```
