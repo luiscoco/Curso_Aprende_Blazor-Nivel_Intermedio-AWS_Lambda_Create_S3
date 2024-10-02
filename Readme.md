@@ -298,7 +298,7 @@ For deploying the AWS Lambda in AWS run the following command:
 dotnet lambda deploy-function
 ```
 
-We input the lambda function name and the role
+We input the lambda function name **lambdacreates3bucket**, the lambda function role **lambdacreates3role** and we select the IAM Policy number **14) No policy, add permissions later**
 
 ![image](https://github.com/user-attachments/assets/7f57550f-6264-480a-90b5-79b49b04270d)
 
