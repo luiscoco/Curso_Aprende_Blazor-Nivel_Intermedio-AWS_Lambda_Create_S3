@@ -133,19 +133,20 @@ namespace AWSLambda1
                     throw new InvalidOperationException("Failed to list S3 buckets, response is null.");
                 }
 
-                if (response.Buckets == null)
+                if (response.Buckets == null || response.Buckets.Count == 0)
                 {
-                    context.Logger.LogLine("ListBucketsAsync returned a null Buckets collection.");
-                    throw new InvalidOperationException("ListBucketsAsync returned a null Buckets collection.");
+                    context.Logger.LogLine("No existing buckets found.");
                 }
-
-                context.Logger.LogLine($"Total buckets found: {response.Buckets.Count}");
-
-                // Check if the bucket already exists
-                if (response.Buckets.Any(b => b.BucketName == bucketName))
+                else
                 {
-                    context.Logger.LogLine($"Bucket '{bucketName}' already exists.");
-                    return;
+                    context.Logger.LogLine($"Total buckets found: {response.Buckets.Count}");
+
+                    // Check if the bucket already exists
+                    if (response.Buckets.Any(b => b.BucketName == bucketName))
+                    {
+                        context.Logger.LogLine($"Bucket '{bucketName}' already exists.");
+                        return;
+                    }
                 }
 
                 // Create a new bucket
