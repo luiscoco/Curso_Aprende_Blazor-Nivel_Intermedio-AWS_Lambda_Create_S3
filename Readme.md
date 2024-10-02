@@ -12,6 +12,13 @@ https://marketplace.visualstudio.com/items?itemName=AmazonWebServices.AWSToolkit
 
 ![image](https://github.com/user-attachments/assets/13f448b0-87e0-4dcb-bbc4-9d50d9f52265)
 
+Log in AWS Console and create a Access Key and Secret Key
+
+Run this command to configure the AWS account:
+
+![image](https://github.com/user-attachments/assets/a30ca0a5-609e-4cf0-8463-5f00140414fd)
+
+
 ## 1. Run Visual Studio and create an Empty AWS Lambda
 
 Run Visual Studio 2022 and create a new project
