@@ -18,7 +18,6 @@ Run this command to configure the AWS account:
 
 ![image](https://github.com/user-attachments/assets/a30ca0a5-609e-4cf0-8463-5f00140414fd)
 
-
 ## 1. Run Visual Studio and create an Empty AWS Lambda
 
 Run Visual Studio 2022 and create a new project
@@ -38,6 +37,8 @@ Select the **Empty Function** and press the **Finish** button
 ![image](https://github.com/user-attachments/assets/90a2737f-303f-4793-8a97-1003e204a2f7)
 
 ## 2. Load the Nuget packages
+
+We load the **AWSSDK.S3** package
 
 ![image](https://github.com/user-attachments/assets/ff99aa90-ee75-4c99-a87f-1280d9318f33)
 
