@@ -315,4 +315,10 @@ Then we define the policies for CloudWatch
 
 ![image](https://github.com/user-attachments/assets/a61d370b-13e3-46dc-9514-8c5ac67b00e6)
 
-## 8. Create a 
+## 8. Verify in AWS Console the Lambda was created
+
+![image](https://github.com/user-attachments/assets/1d106eb4-e989-4f06-8e32-571567232304)
+
+We click on the Lambda function name and navigate to the following page where we are going to create a Function URL fot testing
+
+![image](https://github.com/user-attachments/assets/2c7a0c37-b833-48e4-baa7-70c911ce7eee)
