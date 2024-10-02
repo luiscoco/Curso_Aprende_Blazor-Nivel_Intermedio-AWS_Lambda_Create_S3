@@ -101,8 +101,9 @@ namespace AWSLambda1
         {
             try
             {
-                // Check if the bucket already exists
-                if (await _s3Client.DoesS3BucketExistAsync(bucketName))
+                // List all buckets and check if the bucket already exists
+                var response = await _s3Client.ListBucketsAsync();
+                if (response.Buckets.Any(b => b.BucketName == bucketName))
                 {
                     context.Logger.LogLine($"Bucket '{bucketName}' already exists.");
                     return;
@@ -115,9 +116,8 @@ namespace AWSLambda1
                     BucketRegion = S3Region.EUWest3
                 };
 
-                PutBucketResponse response = await _s3Client.PutBucketAsync(putBucketRequest);
-
-                context.Logger.LogLine($"Bucket '{bucketName}' created. Request ID: {response.ResponseMetadata.RequestId}");
+                PutBucketResponse putResponse = await _s3Client.PutBucketAsync(putBucketRequest);
+                context.Logger.LogLine($"Bucket '{bucketName}' created. Request ID: {putResponse.ResponseMetadata.RequestId}");
             }
             catch (Exception ex)
             {
@@ -125,6 +125,7 @@ namespace AWSLambda1
                 throw;
             }
         }
+
     }
 
     // Define a class to represent the input
