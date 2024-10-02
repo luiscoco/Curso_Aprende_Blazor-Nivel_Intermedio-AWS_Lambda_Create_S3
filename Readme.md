@@ -290,7 +290,9 @@ See the new policy attached to the lambda role
 
 Then we define the policies for CloudWatch
 
+![image](https://github.com/user-attachments/assets/d1a44093-9c2a-44fd-8998-71f6d7284d8a)
 
+![image](https://github.com/user-attachments/assets/2741c79d-98ba-4558-a0ab-8eb21630f7e2)
 
 ```json
 {
@@ -308,3 +310,8 @@ Then we define the policies for CloudWatch
   ]
 }
 ```
+
+![image](https://github.com/user-attachments/assets/bbe4bc15-0300-4f29-a8f4-b5b73d8b580f)
+
+![image](https://github.com/user-attachments/assets/a61d370b-13e3-46dc-9514-8c5ac67b00e6)
+
