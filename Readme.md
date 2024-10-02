@@ -239,7 +239,7 @@ This should show you the list of available commands for working with AWS Lambda
 
 ![image](https://github.com/user-attachments/assets/e8133dcc-cffd-4a1f-babc-52a10d330256)
 
-## 5. Deploy the AWS Lambda
+## 6. Deploy the AWS Lambda
 
 For deploying the AWS Lambda in AWS run the following command:
 
@@ -251,7 +251,7 @@ We input the lambda function name and the role
 
 ![image](https://github.com/user-attachments/assets/7f57550f-6264-480a-90b5-79b49b04270d)
 
-## 6. Login in AWS IAM and attach the policies to the Lambda Role
+## 7. Login in AWS IAM and attach the policies to the Lambda Role
 
 We click on the Lambda role
 
@@ -259,7 +259,7 @@ We click on the Lambda role
 
 We attach the policies for creating S3 bucket and for CloudWatch
 
-![image](https://github.com/user-attachments/assets/e35b2f20-43ea-406e-a629-ad5b1d834e2c)
+![image](https://github.com/user-attachments/assets/1c085b7f-a80a-409a-9da5-3203608f4e3e)
 
 We first stablish the policy for creating S3 butkets
 
