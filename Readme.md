@@ -393,3 +393,13 @@ We navigate to S3 in AWS Console and verify the new bucket was created
 
 ![image](https://github.com/user-attachments/assets/7749ebf1-93c5-4f90-bbc2-112941bab897)
 
+## 10. See CloudWatch logs
+
+We navigate to AWS CloudWatch logs
+
+![image](https://github.com/user-attachments/assets/f1032829-72b8-4039-a91f-3e0595ad4e79)
+
+We click on the log group and see the logs
+
+![image](https://github.com/user-attachments/assets/67282690-5958-4dc6-a2be-196fe62dab73)
+
