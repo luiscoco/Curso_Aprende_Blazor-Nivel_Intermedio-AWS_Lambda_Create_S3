@@ -322,3 +322,17 @@ Then we define the policies for CloudWatch
 We click on the Lambda function name and navigate to the following page where we are going to create a Function URL fot testing
 
 ![image](https://github.com/user-attachments/assets/2c7a0c37-b833-48e4-baa7-70c911ce7eee)
+
+Press **Create Function URL** button
+
+Select **NONE** and press the **Save** button
+
+![image](https://github.com/user-attachments/assets/dd6ea0f8-ddd5-4154-84c8-a6a6e9ab5cdb)
+
+Copy the **Function URL** for testing the Lambda in Postman
+
+![image](https://github.com/user-attachments/assets/a05a3d50-7ff3-4944-933c-e7f040d4fad0)
+
+Run Postman 
+
+
