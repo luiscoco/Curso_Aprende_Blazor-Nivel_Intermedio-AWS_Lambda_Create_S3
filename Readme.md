@@ -34,12 +34,13 @@ Select the **Empty Function** and press the **Finish** button
 
 ## 2. Load the Nuget packages
 
-We have 
-
-
+![image](https://github.com/user-attachments/assets/ff99aa90-ee75-4c99-a87f-1280d9318f33)
 
 ## 3. Input the source code in C#
 
+```csharp
+
+```
 
 
 
