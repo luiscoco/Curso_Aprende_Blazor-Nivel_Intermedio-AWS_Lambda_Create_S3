@@ -247,4 +247,10 @@ For deploying the AWS Lambda in AWS run the following command:
 dotnet lambda deploy-function
 ```
 
+We input the lambda function name and the role
+
+![image](https://github.com/user-attachments/assets/7f57550f-6264-480a-90b5-79b49b04270d)
+
+## 6. Login in AWS IAM and attach the policies to the Lambda Role
+
 
