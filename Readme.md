@@ -383,8 +383,10 @@ Select **NONE** and press the **Save** button
 
 Copy the **Function URL** for testing the Lambda in Postman
 
-![image](https://github.com/user-attachments/assets/a05a3d50-7ff3-4944-933c-e7f040d4fad0)
+![image](https://github.com/user-attachments/assets/ce2c06c6-3e19-4aa6-bc90-a1306a5c8c5d)
 
 Run Postman 
+
+![image](https://github.com/user-attachments/assets/453977eb-a2b9-4310-8e73-13798e048b8e)
 
 
