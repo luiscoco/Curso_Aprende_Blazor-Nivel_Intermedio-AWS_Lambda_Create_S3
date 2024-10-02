@@ -274,6 +274,7 @@ We first stablish the policy for creating S3 butkets
 			"Effect": "Allow",
 			"Action": [
 				"s3:CreateBucket",
+				"s3:ListAllMyBuckets",
 				"s3:PutBucketAcl",
 				"s3:PutBucketPolicy"
 			],
