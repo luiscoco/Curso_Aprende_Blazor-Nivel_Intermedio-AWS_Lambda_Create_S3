@@ -193,7 +193,7 @@ This represents the request model coming from API Gateway. The important propert
 
 **Summary**: The code defines a Lambda function that Receives a JSON input via API Gateway. Extracts the name of an S3 bucket from the request. Checks if the bucket already exists and, if not, creates the bucket. Logs the operation's details and returns success or failure messages based on the outcome.
 
-## 4. Open the Function.cs file in the containing folder
+## 4. Open the Function.cs file in the containing folder and build the application
 
 ![image](https://github.com/user-attachments/assets/65e46201-771a-4385-8288-9b03c219b847)
 
@@ -315,3 +315,4 @@ Then we define the policies for CloudWatch
 
 ![image](https://github.com/user-attachments/assets/a61d370b-13e3-46dc-9514-8c5ac67b00e6)
 
+## 8. Create a 
