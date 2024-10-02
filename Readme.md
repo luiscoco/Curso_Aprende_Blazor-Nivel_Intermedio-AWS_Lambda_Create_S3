@@ -73,27 +73,47 @@ namespace AWSLambda1
             try
             {
                 // Log the raw input for debugging
-                context.Logger.LogLine($"Raw input: {request.Body}");
+                context.Logger.LogLine("Starting function handler...");
+                context.Logger.LogLine($"Raw input: {request.Body ?? "No body"}");
+
+                // Check if the request body is null
+                if (string.IsNullOrEmpty(request.Body))
+                {
+                    context.Logger.LogLine("Request body is null or empty.");
+                    throw new ArgumentException("Request body cannot be null or empty.");
+                }
 
                 // Deserialize the body to extract the bucket name
+                context.Logger.LogLine("Attempting to deserialize input...");
                 var inputObject = JsonSerializer.Deserialize<InputObject>(request.Body);
+
+                if (inputObject == null)
+                {
+                    context.Logger.LogLine("Deserialization returned null.");
+                    throw new ArgumentException("Failed to deserialize the input.");
+                }
 
                 // Ensure the bucket name is retrieved correctly
                 string bucketName = inputObject?.BucketName;
+                context.Logger.LogLine($"Bucket name retrieved: {bucketName}");
 
                 if (string.IsNullOrEmpty(bucketName))
                 {
+                    context.Logger.LogLine("Bucket name is null or empty.");
                     throw new ArgumentException("Bucket name is required.");
                 }
 
                 // Create the S3 bucket
+                context.Logger.LogLine($"Attempting to create S3 bucket: {bucketName}");
                 await CreateS3BucketAsync(bucketName, context);
 
+                context.Logger.LogLine($"Bucket '{bucketName}' created successfully.");
                 return $"Bucket '{bucketName}' created successfully!";
             }
             catch (Exception ex)
             {
                 context.Logger.LogLine($"General error: {ex.Message}");
+                context.Logger.LogLine($"Stack trace: {ex.StackTrace}");
                 return $"General error: {ex.Message}";
             }
         }
@@ -102,8 +122,26 @@ namespace AWSLambda1
         {
             try
             {
-                // List all buckets and check if the bucket already exists
+                context.Logger.LogLine("Listing existing S3 buckets...");
+
+                // List all buckets and log the result
                 var response = await _s3Client.ListBucketsAsync();
+
+                if (response == null)
+                {
+                    context.Logger.LogLine("ListBucketsAsync response is null.");
+                    throw new InvalidOperationException("Failed to list S3 buckets, response is null.");
+                }
+
+                if (response.Buckets == null)
+                {
+                    context.Logger.LogLine("ListBucketsAsync returned a null Buckets collection.");
+                    throw new InvalidOperationException("ListBucketsAsync returned a null Buckets collection.");
+                }
+
+                context.Logger.LogLine($"Total buckets found: {response.Buckets.Count}");
+
+                // Check if the bucket already exists
                 if (response.Buckets.Any(b => b.BucketName == bucketName))
                 {
                     context.Logger.LogLine($"Bucket '{bucketName}' already exists.");
@@ -111,6 +149,7 @@ namespace AWSLambda1
                 }
 
                 // Create a new bucket
+                context.Logger.LogLine($"Creating a new bucket: {bucketName}");
                 var putBucketRequest = new PutBucketRequest
                 {
                     BucketName = bucketName,
@@ -126,7 +165,6 @@ namespace AWSLambda1
                 throw;
             }
         }
-
     }
 
     // Define a class to represent the input
