@@ -36,6 +36,8 @@ Select the **Empty Function** and press the **Finish** button
 
 ## 3. Input the source code in C#
 
+This C# code is designed to be used as an AWS Lambda function. The function handles requests from API Gateway and interacts with Amazon S3 to create a new S3 bucket
+
 ```csharp
 using Amazon.Lambda.Core;
 using Amazon.S3.Model;
@@ -134,6 +136,78 @@ namespace AWSLambda1
 }
 ```
 
+Here's a breakdown of the key components:
 
+**1. Namespace and Dependencies**:
 
+The code uses the following libraries:
 
+**Amazon.Lambda.Core**: Contains classes and interfaces for Lambda function execution.
+
+**Amazon.S3.Model and Amazon.S3**: These are used to interact with Amazon S3, particularly for creating S3 buckets
+
+**System.Text.Json**: Provides functionality for serializing and deserializing JSON input/output
+
+**[assembly: LambdaSerializer]**: Specifies that the Lambda function will use SystemTextJson to serialize and deserialize JSON data
+
+**2. Function Class**:
+
+The main class, Function, defines the logic for handling API Gateway requests and interacting with S3
+
+**IAmazonS3 _s3Client**: The IAmazonS3 interface is used to interact with S3 services. It is initialized using AmazonS3Client()
+
+**3. FunctionHandler**:
+
+This is the Lambda function entry point, where the logic is executed when the Lambda function is invoked by API Gateway
+
+**Input**: The function takes an APIGatewayProxyRequest, which contains a Body (JSON input) and a Lambda context (ILambdaContext) for logging and tracking execution
+
+**Deserialization**: The body of the request is deserialized into an InputObject to extract the S3 bucket name
+
+**Error Handling**: If the bucket name is not provided or an exception occurs, the function logs the error and returns an error message
+
+**4. CreateS3BucketAsync**:
+
+This helper method is responsible for creating an S3 bucket
+
+It first checks if the bucket already exists using _s3Client.DoesS3BucketExistAsync()
+
+If the bucket doesn't exist, it creates a new bucket using _s3Client.PutBucketAsync()
+
+Logging is performed throughout to track successful or failed operations
+
+**5. InputObject Class**:
+
+A simple class representing the expected input structure. It contains one property, BucketName, which is the name of the S3 bucket to be created
+
+**6. APIGatewayProxyRequest Class**:
+
+This represents the request model coming from API Gateway. The important property is Body, which holds the raw JSON data passed to the function
+
+**Summary**: The code defines a Lambda function that Receives a JSON input via API Gateway. Extracts the name of an S3 bucket from the request. Checks if the bucket already exists and, if not, creates the bucket. Logs the operation's details and returns success or failure messages based on the outcome.
+
+## 4. Open the Function.cs file in the containing folder
+
+![image](https://github.com/user-attachments/assets/65e46201-771a-4385-8288-9b03c219b847)
+
+![image](https://github.com/user-attachments/assets/db2a9a5a-d2bd-4e7f-a623-38408c22afef)
+
+Now we type **cmd** to open the folder in the command prompt
+
+![image](https://github.com/user-attachments/assets/c85aecf1-8ad9-4005-8b65-147730eeea55)
+
+We run the commands:
+
+```
+dotnet clean
+```
+
+and
+
+```
+dotnet build
+```
+
+![image](https://github.com/user-attachments/assets/aa4dcf1e-2e17-4140-8e30-284f7312ce74)
+
+## 5. 
